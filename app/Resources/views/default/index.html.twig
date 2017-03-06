@@ -5,9 +5,19 @@
         <div id="container">
             <div id="welcome" class="text-center">
                 <h1>Магазин вкуса - выпечка на заказ, доставка</h1>
-
             </div>
-            <button class="btn btn-lg btn-bs">Здесь долна быть Bootstrap кнопка!</button>
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="{{ asset('image/cake.jpg') }}" width="450">
+                </div>
+
+                <div class="col-sm-6">
+                    <p><button class="btn btn-lg btn-bs col-sm-8"> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Узнайте о нас больше!</button></p>
+                    <p><button class="btn btn-lg btn-bs col-sm-8"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> Оставьте нам свой заказ!</button></p>
+                    <p><button class="btn btn-lg btn-bs col-sm-8"><i class="fa fa-user-circle" aria-hidden="true"></i> Вступите в наш клуб!</button></p>
+                </div>
+            </div>
+
             <div id="status">
                 <p>
                     Вы може это попробовать но оно еще не работает!
