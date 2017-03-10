@@ -12,8 +12,6 @@
     <title>{% block title %}Магия вкуса{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('css/tether.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/tether-theme-basic.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/docs.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
@@ -48,10 +46,21 @@
         </div>
     </div>
 </footer>
-<script src="{{ asset('js/jquery.3.1.1.min.js') }}"></script>
+<script src="{{ asset('js/jquery-slim.min.js') }}"></script>
 <script src="{{ asset('js/tether.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/docs.min.js') }}"></script>
+<script src="{{ asset('js/anchor.min.js') }}"></script>
+<script src="{{ asset('js/clipboard.min.js') }}"></script>
+<script src="{{ asset('js/holder.min.js') }}"></script>
+<script src="{{ asset('js/application.js') }}"></script>
+<script>
+    Holder.addTheme('gray', {
+        bg: '#777',
+        fg: 'rgba(255,255,255,.75)',
+        font: 'Helvetica',
+        fontweight: 'normal'
+    })
+</script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>
