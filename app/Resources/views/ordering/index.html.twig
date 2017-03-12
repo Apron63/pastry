@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Orderings list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Createdat</th>
+                <th>Ownername</th>
+                <th>Phone</th>
+                <th>Notes</th>
+                <th>Completed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ordering in orderings %}
+            <tr>
+                <td><a href="{{ path('ordering_show', { 'id': ordering.id }) }}">{{ ordering.id }}</a></td>
+                <td>{{ ordering.createdAt }}</td>
+                <td>{{ ordering.ownerName }}</td>
+                <td>{{ ordering.phone }}</td>
+                <td>{{ ordering.notes }}</td>
+                <td>{% if ordering.completed %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('ordering_show', { 'id': ordering.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ordering_edit', { 'id': ordering.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ordering_new') }}">Create a new ordering</a>
+        </li>
+    </ul>
+{% endblock %}

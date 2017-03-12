@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ordering</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ordering.id }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{{ ordering.createdAt }}</td>
+            </tr>
+            <tr>
+                <th>Ownername</th>
+                <td>{{ ordering.ownerName }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ ordering.phone }}</td>
+            </tr>
+            <tr>
+                <th>Notes</th>
+                <td>{{ ordering.notes }}</td>
+            </tr>
+            <tr>
+                <th>Completed</th>
+                <td>{% if ordering.completed %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ordering_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('ordering_edit', { 'id': ordering.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
