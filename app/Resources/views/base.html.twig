@@ -31,6 +31,11 @@
             {% for flash_message in app.session.flashBag.get('error') %}
                 <div class="alert alert-danger">{{ flash_message }}</div>
             {% endfor %}
+
+            <p></p>
+            <h1 class="text-center">Магазин вкуса - выпечка на заказ, доставка</h1>
+            <p></p>
+
             {% block body %}{% endblock %}
         </div>
     </div>

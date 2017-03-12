@@ -3,11 +3,6 @@
 {% block body %}
     <div id="wrapper">
         <div id="container">
-            <div id="welcome" class="text-center">
-                <p></p>
-                <h1>Магазин вкуса - выпечка на заказ, доставка</h1>
-                <p></p>
-            </div>
             <div class="row">
                 <div class="col-sm-6">
                     <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
@@ -51,9 +46,9 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <p><button class="btn btn-lg btn-bs col-sm-8"> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Узнайте о нас больше!</button></p>
-                    <p><button class="btn btn-lg btn-bs col-sm-8"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> Оставьте нам свой заказ!</button></p>
-                    <p><button class="btn btn-lg btn-bs col-sm-8"><i class="fa fa-user-circle" aria-hidden="true"></i> Вступите в наш клуб!</button></p>
+                    <p><a href="{{ path('about') }}" class="btn btn-lg btn-bs col-sm-8"> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Узнайте о нас больше!</a></p>
+                    <p><a href="{{ path('order') }}" class="btn btn-lg btn-bs col-sm-8"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> Оставьте нам свой заказ!</a></p>
+                    <p><a href="{{ path('club') }}" class="btn btn-lg btn-bs col-sm-8"><i class="fa fa-user-circle" aria-hidden="true"></i> Вступите в наш клуб!</a></p>
                 </div>
             </div>
         </div>
