@@ -51,10 +51,11 @@ class OrderingController extends Controller
             return $this->redirectToRoute('ordering_show', array('id' => $ordering->getId()));
         }
 
-        return $this->render('ordering/new.html.twig', array(
+        return $this->render('ordering/form.html.twig', [
             'ordering' => $ordering,
             'form' => $form->createView(),
-        ));
+            'title' => 'Новый заказ',
+        ]);
     }
 
     /**
