@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Ordering
@@ -23,25 +22,23 @@ class Ordering
     private $id;
 
     /**
-     * @var integer
+     * @var \DateTime
      *
-     * @ORM\Column(name="created_at", type="integer", nullable=false)
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     private $createdAt;
 
     /**
      * @var string
+     *
      * @ORM\Column(name="owner_name", type="string", length=100, nullable=false)
-     * @Assert\NotBlank()
-     * message = 'Обязательно для заполнения'
      */
     private $ownerName;
 
     /**
      * @var string
+     *
      * @ORM\Column(name="phone", type="string", length=15, nullable=false)
-     * @Assert\NotBlank()
-     * message = 'Обязательно для заполнения'
      */
     private $phone;
 
@@ -60,25 +57,11 @@ class Ordering
     private $completed;
 
 
-    public function __construct()
-    {
-        $this->createdAt = time();
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set createdAt
      *
-     * @param integer $createdAt
+     * @param \DateTime $createdAt
      *
      * @return Ordering
      */
@@ -92,7 +75,7 @@ class Ordering
     /**
      * Get createdAt
      *
-     * @return integer
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -193,5 +176,15 @@ class Ordering
     public function getCompleted()
     {
         return $this->completed;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

@@ -6,6 +6,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+
 class OrderingType extends AbstractType
 {
     /**
@@ -14,9 +17,9 @@ class OrderingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('createdAt')
-        ->add('ownerName')
-        ->add('phone')
+        ->add('createdAt', DateType::class, ['label' => 'Дата'])
+        ->add('ownerName', TextType::class)
+        ->add('phone', TextType::class)
         ->add('notes')
         ->add('completed');
     }

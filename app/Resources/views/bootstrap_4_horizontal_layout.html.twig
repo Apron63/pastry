@@ -19,13 +19,13 @@
 {%- endblock form_label %}
 
 {% block form_label_class -%}
-col-2 col-form-label
+col-2
 {%- endblock form_label_class %}
 
 {# Rows #}
 
 {% block form_row -%}
-    <div class="form-group{% if (not compound or force_error|default(false)) and not valid %} has-error{% endif %}">
+    <div class="form-group row{% if (not compound or force_error|default(false)) and not valid %} has-error{% endif %}">
         {{- form_label(form) -}}
         <div class="{{ block('form_group_class') }}">
             {{- form_widget(form) -}}
