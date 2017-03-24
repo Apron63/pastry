@@ -187,4 +187,10 @@ class Ordering
     {
         return $this->id;
     }
+
+    /********************************************************************************************/
+    public function __construct()
+    {
+        $this->createdAt = time();
+    }
 }

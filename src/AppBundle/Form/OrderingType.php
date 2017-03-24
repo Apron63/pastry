@@ -18,8 +18,8 @@ class OrderingType extends AbstractType
     {
         $builder
         ->add('createdAt', DateType::class, ['label' => 'Дата'])
-        ->add('ownerName', TextType::class)
-        ->add('phone', TextType::class)
+        ->add('ownerName', TextType::class, ['label' => 'Заказчик'])
+        ->add('phone', TextType::class, ['label' => 'Телефон'])
         ->add('notes')
         ->add('completed');
     }
