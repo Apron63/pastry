@@ -4,8 +4,9 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Ordering;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
  * Ordering controller.
@@ -40,7 +41,7 @@ class OrderingController extends Controller
     public function newAction(Request $request)
     {
         $ordering = new Ordering();
-        $form = $this->createForm('AppBundle\Form\OrderingType', $ordering);
+        $form = $this->createForm('AppBundle\Form\OrderingForm', $ordering);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -83,7 +84,7 @@ class OrderingController extends Controller
     public function editAction(Request $request, Ordering $ordering)
     {
         $deleteForm = $this->createDeleteForm($ordering);
-        $editForm = $this->createForm('AppBundle\Form\OrderingType', $ordering);
+        $editForm = $this->createForm('AppBundle\Form\OrderingForm', $ordering);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
