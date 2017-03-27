@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Orderings list</h1>
+    <h1>Перечень заказов</h1>
 
     <table>
         <thead>
@@ -19,7 +19,7 @@
         {% for ordering in orderings %}
             <tr>
                 <td><a href="{{ path('ordering_show', { 'id': ordering.id }) }}">{{ ordering.id }}</a></td>
-                <td>{{ ordering.createdAt }}</td>
+                <td>{{ ordering.createdAt.format('d-m-Y H:i:s') }}</td>
                 <td>{{ ordering.ownerName }}</td>
                 <td>{{ ordering.phone }}</td>
                 <td>{{ ordering.notes }}</td>

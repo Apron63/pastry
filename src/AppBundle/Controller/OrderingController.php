@@ -17,7 +17,7 @@ class OrderingController extends Controller
     /**
      * Lists all ordering entities.
      *
-     * @Route("/", name="ordering_index")
+     * @Route("/", name="ordering")
      * @Method("GET")
      */
     public function indexAction()
@@ -48,7 +48,7 @@ class OrderingController extends Controller
             $em->persist($ordering);
             $em->flush($ordering);
 
-            return $this->redirectToRoute('ordering_show', array('id' => $ordering->getId()));
+            return $this->redirectToRoute('ordering', array('id' => $ordering->getId()));
         }
 
         return $this->render('ordering/form.html.twig', [

@@ -11,7 +11,17 @@
 
     <ul>
         <li>
-            <a href="{{ path('ordering_index') }}">Обратно</a>
+            <a href="{{ path('ordering') }}">Обратно</a>
         </li>
     </ul>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    $(document).ready(function() {
+        $('.js-datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+</script>
 {% endblock %}

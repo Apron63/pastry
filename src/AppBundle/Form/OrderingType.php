@@ -17,7 +17,14 @@ class OrderingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('createdAt', DateType::class, ['label' => 'Дата'])
+        ->add('createdAt', DateType::class, [
+            'widget' => 'choice',
+            'label' => 'Дата заявки',
+            // do not render as type="date", to avoid HTML5 date pickers
+            'html5' => false,
+            // add a class that can be selected in JavaScript
+            'attr' => ['class' => 'js-datepicker'],
+        ])
         ->add('ownerName', TextType::class, ['label' => 'Заказчик'])
         ->add('phone', TextType::class, ['label' => 'Телефон'])
         ->add('notes')

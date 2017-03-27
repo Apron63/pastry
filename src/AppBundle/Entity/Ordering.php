@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Ordering
  *
- * @ORM\Table(name="ordering", indexes={@ORM\Index(name="created_at", columns={"created_at"})})
+ * @ORM\Table(name="pas_ordering", indexes={@ORM\Index(name="created_at", columns={"created_at"})})
  * @ORM\Entity
  */
 class Ordering
@@ -191,6 +191,7 @@ class Ordering
     /********************************************************************************************/
     public function __construct()
     {
-        $this->createdAt = time();
+        //$this->createdAt = time();
+        $this->createdAt = new \DateTime();
     }
 }
