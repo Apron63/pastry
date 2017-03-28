@@ -26,7 +26,7 @@ class Ordering
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false)
-     * @Assert\NotBlank(message="Укажите дату заявки")
+     * //@Assert\NotBlank(message="Укажите дату заявки")
      */
     private $createdAt;
 
