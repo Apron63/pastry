@@ -38,9 +38,10 @@ class OrderingForm extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Ordering'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\Ordering',
+            'required' => false,
+        ]);
     }
 
     /**

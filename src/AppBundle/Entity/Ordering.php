@@ -26,6 +26,7 @@ class Ordering
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     * @Assert\NotBlank(message="Укажите дату заявки")
      */
     private $createdAt;
 
@@ -33,7 +34,7 @@ class Ordering
      * @var string
      *
      * @ORM\Column(name="owner_name", type="string", length=100, nullable=false)
-     * @Assert\Length(min="3", minMessage="Слишком короткое наименование")
+     * @Assert\NotBlank(message="Укажите имя заказчика")
      */
     private $ownerName;
 
@@ -41,7 +42,6 @@ class Ordering
      * @var string
      *
      * @ORM\Column(name="phone", type="string", length=15, nullable=false)
-     *
      * @Assert\NotBlank(message="Укажите номер телефона")
      */
     private $phone;
@@ -50,6 +50,7 @@ class Ordering
      * @var string
      *
      * @ORM\Column(name="notes", type="text", length=255, nullable=false)
+     * @Assert\NotBlank(message="Укажите описание заявки")
      *
      */
     private $notes;
