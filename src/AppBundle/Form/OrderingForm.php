@@ -3,11 +3,12 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class OrderingForm extends AbstractType
 {
@@ -21,15 +22,20 @@ class OrderingForm extends AbstractType
             'label' => 'Дата заявки',
             'format' => 'dd-mm-yyyy',
             'widget' => 'single_text',
-            // do not render as type="date", to avoid HTML5 date pickers
             'html5' => false,
-            // add a class that can be selected in JavaScript
-            'attr' => ['class' => 'js-datepicker'],
-            'invalid_message' => 'Неверная дата!',
+            'attr' => [
+                'class' => 'js-datepicker',
+                'addon' => 'fa fa-calendar',
+            ],
         ])
-        ->add('ownerName', TextType::class, ['label' => 'Заказчик'])
+        ->add('ownerName', TextType::class, [
+            'label' => 'Заказчик',
+            'attr' => [
+                'autofocus' => 'on',
+            ],
+        ])
         ->add('phone', TextType::class, ['label' => 'Телефон'])
-        ->add('notes')
+        ->add('notes', TextareaType::class, ['label' => 'Описание'])
         ->add('completed');
     }
     

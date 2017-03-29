@@ -6,7 +6,14 @@
     {% if type is not defined or type not in ['file', 'hidden'] %}
         {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
     {% endif %}
-    {{- parent() -}}
+    {% if attr.addon is defined%}
+        <div class="input-group date">
+            <span class="input-group-addon"><i class="{{ attr.addon }}" aria-hidden="true"></i></span>
+            {{- parent() -}}
+        </div>
+    {% else %}
+        {{- parent() -}}
+    {% endif %}
 {%- endblock form_widget_simple %}
 
 {% block textarea_widget -%}
@@ -253,12 +260,12 @@
 
 {% block form_errors -%}
     {% if errors|length > 0 -%}
-    {% if form.parent %}<span class="help-block">{% else %}<div class="alert alert-danger">{% endif %}
-    <ul class="list-unstyled">
-        {%- for error in errors -%}
-            <li><span class="glyphicon glyphicon-exclamation-sign"></span> {{ error.message }}</li>
-        {%- endfor -%}
-    </ul>
-    {% if form.parent %}</span>{% else %}</div>{% endif %}
+        <div class="form-control-feedback">
+            <ul class="list-unstyled">
+                {%- for error in errors -%}
+                    <li><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{ error.message }}</li>
+                {%- endfor -%}
+            </ul>
+        </div>
     {%- endif %}
 {%- endblock form_errors %}
