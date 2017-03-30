@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -32,11 +33,28 @@ class OrderingForm extends AbstractType
             'label' => 'Заказчик',
             'attr' => [
                 'autofocus' => 'on',
+                'placeholder' => 'Напишите, как в Кам обращаться',
             ],
         ])
-        ->add('phone', TextType::class, ['label' => 'Телефон'])
-        ->add('notes', TextareaType::class, ['label' => 'Описание'])
-        ->add('completed');
+        ->add('phone', TextType::class, [
+            'label' => 'Телефон',
+            'attr' => [
+                'placeholder' => 'Оставьте нам Ваш номер и мы с Вами свяжемся',
+            ]
+        ])
+        ->add('notes', TextareaType::class, [
+            'label' => 'Описание',
+            'attr' => [
+                'placeholder' => 'Опишите здесь все Ваши пожелания',
+            ]
+        ])
+        ->add('completed')
+        ->add('save', SubmitType::class, [
+            'label' => 'Создать',
+            'attr' => [
+                'class' => 'btn btn-success',
+            ]
+        ]);
     }
     
     /**
